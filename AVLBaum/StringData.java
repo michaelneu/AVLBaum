@@ -15,6 +15,12 @@ public class StringData implements IData {
         return content.compareTo(other);
     }
     
+    public boolean Equals(IData data) {
+        String other = (String)data.GetData();
+        
+        return content.equals(other);
+    }
+    
     @Override public String toString() {
         return content;
     }

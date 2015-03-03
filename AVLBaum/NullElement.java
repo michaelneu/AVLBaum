@@ -3,6 +3,10 @@ public class NullElement implements IElement {
         
     }
     
+    public int Count() {
+        return 0;
+    }
+    
     public IElement Insert(IData data) {
         TreeElement element = new TreeElement(data);
         element.SetLeft(this);

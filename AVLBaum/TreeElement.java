@@ -6,6 +6,10 @@ public class TreeElement implements IElement {
         content = data;
     }
     
+    public int Count() {
+        return 1 + leftElement.Count() + rightElement.Count();
+    }
+    
     public IElement Insert(IData data) {
         if (data.CompareTo(content) <= 0) {
             leftElement = leftElement.Insert(data);
@@ -21,7 +25,7 @@ public class TreeElement implements IElement {
     }
     
     public boolean Contains(IData data) {
-        return false;
+        return content.Equals(data) || leftElement.Contains(data) || rightElement.Contains(data);
     }
     
     public IElement Balance() {

@@ -1,19 +1,20 @@
 public class AVLTree {
     private IElement root;
-    private int count;
     
     public AVLTree() {
         root = new NullElement();
-        count = 0;
     }
     
     public int Count() {
-        return count;
+        return root.Count();
     }
     
     public void Insert(IData data) {
         root = root.Insert(data);
-        count += 1;
+    }
+    
+    public boolean Contains(IData data) {
+        return root.Contains(data);
     }
     
     @Override public String toString() {
@@ -23,8 +24,12 @@ public class AVLTree {
         return root.toString(order);
     }
     
+    public Object[] toJSONBase() {
+        return root.toJSON();
+    }
     public String toJSON() {
-        Object[] avl = root.toJSON();
+        Object[] avl = toJSONBase();
+        
         return JSON.Encode(avl);
     }
 }

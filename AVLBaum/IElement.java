@@ -1,4 +1,5 @@
 public interface IElement {
+    public int Count();
     public IElement Insert(IData data);
     public IElement Delete(IData data);
     public boolean Contains(IData data);
