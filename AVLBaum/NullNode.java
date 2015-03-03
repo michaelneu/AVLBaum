@@ -1,5 +1,5 @@
-public class NullElement implements IElement {
-    public NullElement() {
+public class NullNode implements INode {
+    public NullNode() {
         
     }
     
@@ -7,31 +7,35 @@ public class NullElement implements IElement {
         return 0;
     }
     
-    public IElement Insert(IData data) {
-        TreeElement element = new TreeElement(data);
+    public INode Insert(IData data) {
+        Node element = new Node(data);
         element.SetLeft(this);
         element.SetRight(this);
         
         return element;
     }
     
-    public IElement Delete(IData data) {
-        return null;
+    public INode Delete(IData data) {
+        return this;
     }
     
     public boolean Contains(IData data) {
         return false;
     }
     
-    public IElement Balance() {
+    public INode GetBiggestNode() {
         return null;
     }
     
-    public void SetLeft(IElement element) {
+    public INode Balance() {
+        return null;
+    }
+    
+    public void SetLeft(INode element) {
         // empty
     }
     
-    public void SetRight(IElement element) {
+    public void SetRight(INode element) {
         // empty
     }
     

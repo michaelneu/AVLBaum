@@ -10,15 +10,27 @@ public class StringData implements IData {
     }
     
     public int CompareTo(IData data) {
-        String other = (String)data.GetData();
-        
-        return content.compareTo(other);
+        if (data instanceof StringData) {
+            String other = (String)data.GetData();
+            
+            return content.compareTo(other);
+        } else {
+            String other = data.GetData().toString();
+            
+            return content.compareTo(other);
+        }
     }
     
     public boolean Equals(IData data) {
-        String other = (String)data.GetData();
-        
-        return content.equals(other);
+        if (data instanceof StringData) {
+            String other = (String)data.GetData();
+            
+            return content.equals(other);
+        } else {
+            String other = data.GetData().toString();
+            
+            return content.equals(other);
+        }
     }
     
     @Override public String toString() {
