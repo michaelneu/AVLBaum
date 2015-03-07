@@ -4,18 +4,18 @@ public class AVLNode extends Node {
     }
     
     public INode Insert(IData data) {
-        INode retVal = super.Insert(data);
-        retVal = Rebalance(retVal);
+        INode node = super.Insert(data);
+        node = Rebalance(node);
         
-        return retVal;
+        return node;
     }
     
     
     public INode Delete(IData data) {
-        INode retVal = super.Delete(data);
-        retVal = Rebalance(retVal);
+        INode node = super.Delete(data);
+        node = Rebalance(node);
         
-        return retVal;
+        return node;
     }
     
     

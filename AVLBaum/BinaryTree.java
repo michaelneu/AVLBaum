@@ -44,13 +44,8 @@ public class BinaryTree {
     }
     
     
-    public Object[] toJSONBase() {
+    public Object[] toJSON() {
         return root.toJSON();
-    }
-    public String toJSON() {
-        Object[] avl = toJSONBase();
-        
-        return JSON.Encode(avl);
     }
     
     public void fromJSON(Object[] json) {

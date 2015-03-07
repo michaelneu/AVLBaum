@@ -16,17 +16,17 @@ public class Usage {
                 System.out.println("Element zum Einfügen: " + data.toString());
                 System.out.println("");
             
-            Object[] json = avl.toJSONBase();
+            Object[] json = avl.toJSON();
             unbalancedTree.fromJSON(json);
             
             unbalancedTree.Insert(data);
                 System.out.println("Nach Einfügen: ");
-                System.out.println(unbalancedTree.toJSON());
+                System.out.println(TreeVisualizer.Encode(unbalancedTree.toJSON()));
                 System.out.println("");
             
             avl.Insert(data);
                 System.out.println("Balanciert: ");
-                System.out.println(avl.toJSON());
+                System.out.println(TreeVisualizer.Encode(avl.toJSON()));
                 System.out.println("");
                 
                 System.out.println("Inorder: " + avl.toString());
@@ -37,17 +37,17 @@ public class Usage {
             System.out.println("\nElement zum Löschen: " + delete.toString());
             System.out.println("");
         
-        Object[] json = avl.toJSONBase();
+        Object[] json = avl.toJSON();
         unbalancedTree.fromJSON(json);
         
         unbalancedTree.Delete(delete);
             System.out.println("Nach Löschen: ");
-            System.out.println(unbalancedTree.toJSON());
+            System.out.println(TreeVisualizer.Encode(unbalancedTree.toJSON()));
             System.out.println("");
         
         avl.Delete(delete);
             System.out.println("Balanciert: ");
-            System.out.println(avl.toJSON());
+            System.out.println(TreeVisualizer.Encode(avl.toJSON()));
             System.out.println("");
             
             System.out.println("Inorder: " + avl.toString());
