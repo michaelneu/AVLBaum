@@ -1,10 +1,9 @@
-import java.util.*;
-
 public class Usage {
     public static void main(String[] args) {
         BinaryTree unbalancedTree = new BinaryTree();
         AVLTree avl = new AVLTree();
-        IData delete = null;
+        
+            IData delete = null;
         
         for (int i = 1; i < 10; i++) {
             IntData data = new IntData();
@@ -14,8 +13,7 @@ public class Usage {
                     delete = data;
                 }
             
-                System.out.println("Element zum Einfügen: ");
-                System.out.println(data.toString());
+                System.out.println("Element zum Einfügen: " + data.toString());
                 System.out.println("");
             
             Object[] json = avl.toJSONBase();
@@ -36,15 +34,14 @@ public class Usage {
                 System.out.println("##################################################");
         }
         
-            System.out.println("\nElement zum Löschen: ");
-            System.out.println(delete.toString());
+            System.out.println("\nElement zum Löschen: " + delete.toString());
             System.out.println("");
         
         Object[] json = avl.toJSONBase();
         unbalancedTree.fromJSON(json);
         
         unbalancedTree.Delete(delete);
-            System.out.println("Nach Einfügen: ");
+            System.out.println("Nach Löschen: ");
             System.out.println(unbalancedTree.toJSON());
             System.out.println("");
         
@@ -57,12 +54,5 @@ public class Usage {
             
             System.out.println("##################################################");
         
-    }
-    
-    private static Random random = new Random();
-    private static String RandomChar() {
-        char c = (char)(random.nextInt(26) + 97);
-        
-        return c + "";
     }
 }

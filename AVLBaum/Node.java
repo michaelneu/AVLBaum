@@ -49,25 +49,15 @@ public class Node implements INode {
     }
     
     public IData Min() {
-        IData left = leftElement.Min(),
-            right = rightElement.Min(),
-            min;
+        IData left = leftElement.Min();
         
-        min = Min(left, right);
-        min = Min(min, content);
-        
-        return min;
+        return Min(left, content);
     }
     
     public IData Max() {
-        IData left = leftElement.Max(),
-            right = rightElement.Max(),
-            max;
+        IData right = rightElement.Max();
         
-        max = Max(left, right);
-        max = Max(max, content);
-        
-        return max;
+        return Max(right, content);
     }
     
     
@@ -89,7 +79,9 @@ public class Node implements INode {
             
             if (elementsLeftSide > 0) {
                 INode biggest = leftElement.GetBiggestNode();
-                biggest.SetLeft(leftElement);
+                if (biggest != leftElement) {
+                    biggest.SetLeft(leftElement);
+                }
                 biggest.SetRight(rightElement);
                 
                 return biggest;
@@ -108,12 +100,23 @@ public class Node implements INode {
         int leftCount = leftElement.Count(),
             rightCount = rightElement.Count();
         
-        if (leftCount == 0 && rightCount == 0) {
+        if (leftCount == 0 && rightCount == 0) { // element is already biggest one
             return this;
-        } else if (rightCount > 0) {
-            return rightElement.GetBiggestNode();
         } else {
-            return leftElement.GetBiggestNode();
+            if (rightCount == 1) { // only 1 node right
+                INode temp = rightElement;
+                rightElement = temp.GetRight();
+                
+                return temp;
+            } else if (rightCount > 1) { // only follow right path
+                return GetBiggestNode();
+            } else { // only elements on the left --> pop out leftElement and set it's children as this' children
+                INode temp = leftElement;
+                leftElement = temp.GetLeft();
+                rightElement = temp.GetRight();
+                
+                return temp;
+            }
         }
     }
     
