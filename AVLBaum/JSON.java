@@ -11,6 +11,8 @@ public class JSON {
         String spaces = GetSpaces(depth),
             text = "",
             comma = "\n";
+        if (avl == null)
+            return "";
         
         text += spaces + "\"" + avl[0].toString() + "\": {\n";
             

@@ -3,11 +3,11 @@ import java.util.*;
 public class Test {
     private static Random random = new Random();
     
-    private static AVLTree GenerateRandomTree(int elements) {
+    private static BinaryTree GenerateRandomTree(int elements) {
         return GenerateRandomTree(elements, 5, true);
     }
-    private static AVLTree GenerateRandomTree(int elements, int maxWordLength, boolean capitals) {
-        AVLTree tree = new AVLTree();
+    private static BinaryTree GenerateRandomTree(int elements, int maxWordLength, boolean capitals) {
+        BinaryTree tree = new BinaryTree();
         
         for (int i = 0; i < 10; i++) {
             int textLength = random.nextInt(maxWordLength) + 1;
@@ -39,13 +39,13 @@ public class Test {
     
     
     public static void TestJSON() {
-        AVLTree tree = GenerateRandomTree(10);
+        BinaryTree tree = GenerateRandomTree(10);
         
         System.out.println(tree.toJSON());
     }
     
     public static void TestContains() {
-        AVLTree tree = GenerateRandomTree(10, 1, false);
+        BinaryTree tree = GenerateRandomTree(10, 1, false);
         
         System.out.println("> var tree = " + tree.toJSON() + "\n");
         
@@ -61,7 +61,7 @@ public class Test {
     }
     
     public static void TestDelete() {
-        AVLTree tree = new AVLTree();
+        BinaryTree tree = new BinaryTree();
         
         StringData data = new StringData();
         data.SetData("b");

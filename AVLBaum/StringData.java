@@ -10,6 +10,10 @@ public class StringData implements IData {
     }
     
     public int CompareTo(IData data) {
+        if (data == null || content == null) {
+            return 0;
+        }
+        
         if (data instanceof StringData) {
             String other = (String)data.GetData();
             

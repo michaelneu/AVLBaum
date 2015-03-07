@@ -3,9 +3,27 @@ public class NullNode implements INode {
         
     }
     
+    
     public int Count() {
         return 0;
     }
+    
+    public int Depth() {
+        return 0;
+    }
+    
+    public boolean Contains(IData data) {
+        return false;
+    }
+    
+    public IData Min() {
+        return null;
+    }
+    
+    public IData Max() {
+        return null;
+    }
+    
     
     public INode Insert(IData data) {
         Node element = new Node(data);
@@ -19,28 +37,30 @@ public class NullNode implements INode {
         return this;
     }
     
-    public boolean Contains(IData data) {
-        return false;
-    }
-    
     public INode GetBiggestNode() {
         return null;
     }
     
-    public INode Balance() {
-        return null;
-    }
     
     public void SetLeft(INode element) {
-        // empty
+        //
     }
     
     public void SetRight(INode element) {
-        // empty
+        //
     }
     
+    public INode GetLeft() {
+        return this;
+    }
+    
+    public INode GetRight() {
+        return this;
+    }
+    
+    
     @Override public String toString() {
-        return "";
+        return null;
     }
     public String toString(OutputOrder order) {
         return toString();
