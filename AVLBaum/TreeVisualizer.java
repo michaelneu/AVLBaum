@@ -67,13 +67,24 @@ public class TreeVisualizer {
     }
     
     private static String Center(String text, int count) {
+        char fillChar = '_';
         int diff = count - text.length();
         diff = Math.max(diff, 0);
         
         int left = diff / 2,
             right = diff - left;
         
-        return RepeatString(" ", left) + text + RepeatString(" ", right);
+        text = RepeatString(fillChar + "", left) + text + RepeatString(fillChar + "", right);
+        
+        if (text.charAt(0) == fillChar) {
+            text = " " + text.substring(1, text.length());
+        }
+        
+        if (text.charAt(text.length() - 1) == fillChar) {
+            text = text.substring(0, text.length() - 1) + " ";
+        }
+        
+        return text;
     }
     
     private static String RepeatString(String s, int count) {
